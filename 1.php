@@ -4,6 +4,7 @@ function printr($data){
 		print_r($data);
 		echo "<pre>";
 	}
+#################################
 	echo "<samp>Zbir fibonacijevog niza za N elemenata (rekurzija)<br>";
 
 	function fib($n){
@@ -15,7 +16,7 @@ function printr($data){
 		}
 	}
 	echo "<br>Suma: ".fib(4);
-
+#####################################
 	echo "<hr>Faktorijel (rekurzija)<br>";
 
 	function fak($n){
@@ -29,10 +30,9 @@ function printr($data){
 		
 	}
 	echo "<br>Suma: ".fak(5);
-
+######################################
 
 	echo "<hr>Suma brojeva u nizu X koji su deljivi sa brojem C duzine N <br>";
-
 	
 	function zadA($n,$c){
 		$niz = array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
@@ -46,9 +46,8 @@ function printr($data){
 		}
 		echo "SUMA: $s";
 	}
-
 	zadA(10,3);
-
+######################################
 	echo "<hr> Suma brojeva veci od K u nizu X duzine N<br>";
 
 	function zadB($n,$k){
@@ -64,7 +63,7 @@ function printr($data){
 		echo "SUMA: $s";
 	}
 	zadB(10,7);
-
+######################################
 	echo "<hr> Farenhaitove stepene pretvara u celzijus<br>";
 
 	function zadC(){
@@ -77,7 +76,7 @@ function printr($data){
 		}
 	}
 	zadC();
-
+######################################
 	echo "<hr> Racunanje niza Y Z=(X-Y[1])*(X-Y[2])...(X-Y[N])<br>";
 	function nizF($x,$n){
 		$y = array();
@@ -100,7 +99,7 @@ function printr($data){
 		echo "<br>Suma $suma";
 	}
 	nizF(5,3);
-
+######################################
 	echo "<hr>NZD euklidov algoritam <br>";
 	function euk($a,$b){
 		while($a!=$b){
@@ -114,4 +113,26 @@ function printr($data){
 	}
 	#euk(3654,1365);//21
 	euk(12,8); //4  a=12-8, a=4 |a<b| b=8-4, b=4  |a=b| return $a
+######################################
+#
+	echo "<hr>Napisati program koji proverava koliko cifara ima zadati prirodni broj , izračunava njihovu sumu i proverava koliko se puta u njemu pojavila cifra 5. <br>";
+ 	function numerator($n){
+ 		echo "Vas broj: $n <br>";
+ 		$br_cif = 0; $br_5 = 0; $s = 0;
+ 		while ($n) {
+ 			$cifra = $n%10;
+ 			$br_cif = $br_cif + 1;
+ 			$s = $s + $cifra;
+ 			if($cifra == 5){
+ 				$br_5 = $br_5 + 1;
+ 			}
+ 			$n = $n/10;
+ 		}
+ 		echo "Ukupno cifre: $br_cif <br>Petice: $br_5";
+ 	}
+ 	numerator(875);
+
+
  ?>
+
+
