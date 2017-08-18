@@ -114,21 +114,20 @@ function printr($data){
 	#euk(3654,1365);//21
 	euk(12,8); //4  a=12-8, a=4 |a<b| b=8-4, b=4  |a=b| return $a
 ######################################
-#
 	echo "<hr>Napisati program koji proverava koliko cifara ima zadati prirodni broj , izračunava njihovu sumu i proverava koliko se puta u njemu pojavila cifra 5. <br>";
  	function numerator($n){
  		echo "Vas broj: $n <br>";
  		$br_cif = 0; $br_5 = 0; $s = 0;
- 		while ($n) {
+ 		while ($n > 0) {
  			$cifra = $n%10;
- 			$br_cif = $br_cif + 1;
+ 			$br_cif++; 
  			$s = $s + $cifra;
  			if($cifra == 5){
  				$br_5 = $br_5 + 1;
  			}
- 			$n = $n/10;
+ 			$n = (int)($n/10); //Neophodno je castovanje u int zato sto php po defaultu deklarise promenljive
  		}
- 		echo "Ukupno cifre: $br_cif <br>Petice: $br_5";
+ 		echo "Ukupno cifre: $br_cif <br>Suma: $s <br>Petice: $br_5";
  	}
  	numerator(875);
 
