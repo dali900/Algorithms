@@ -151,6 +151,85 @@ function printr($data){
  		}
  	}
  	echo "NZD: ".euklid(12,8);
+#############################################
+echo "<hr>Sort direktno umetanje <br>";	
+function sortUmetanje(array $niz){
+	echo "POCETNI NIZ: "; printr($niz);
+	for ($i=1; $i < count($niz); $i++) { 
+		$key = $niz[$i];
+		$j = $i;
+		while ($j>0 && $niz[$j-1]>$key) {
+			echo "J[".($j-1)."]=".$niz[$j-1]."::J[$j]=$key Za ".$niz[$j-1].">".$key."<br>";
+			$niz[$j] = $niz[$j-1]; //Index gde je manji broj bice jednak vecem
+			echo "index J[".($j-1)."]=".$niz[$j-1]."<br>";
+			echo "index J[$j]=".$niz[$j]."<br>";
+			$j = $j - 1;
+			#printr($niz);
+		}
+		$niz[$j]=$key; echo "$key Ide u index J[$j]<br>";
+		
+	}
+	echo "Rezultat:";
+	printr($niz);
+}
+sortUmetanje(array(5,1,9,4,2,3,6,7,8));
+
+#############################################
+echo "<hr>Sort selekcijom <br>";	
+# Trazi se najmanji broj i pomera se skroz levo do sledec manjeg
+function sortSelection(array $niz){
+	echo "POCETNI NIZ: "; printr($niz);
+	for ($i=0; $i < count($niz)-1; $i++) { 
+		$min = $i;
+		for ($j=$i+1; $j < count($niz); $j++) { 
+			if ($niz[$j]<$niz[$min]) {
+				$min=$j;
+			}
+		}
+		if ($min != $i) {
+			$temp = $niz[$min];
+			$niz[$min] = $niz[$i];
+			$niz[$i] = $temp;
+		}
+	}
+	echo "Rezultat:";
+	printr($niz);
+}
+
+sortSelection(array(5,1,9,4,2,3,6,7,11,8));
+
+#############################################
+echo "<hr>Bubble sort <br>";	
+function bubbleSort(array $niz){
+	echo "POCETNI NIZ: "; printr($niz);
+	$isSorted = false;
+	while (!$isSorted) {
+		$isSorted=true;
+		for ($i=0; $i < count($niz)-1; $i++) { 
+			if ($niz[$i] > $niz[$i+1]) {
+				$temp = $niz[$i];
+				$niz[$i] = $niz[$i+1];
+				$niz[$i+1] = $temp;
+				$isSorted = false;
+			}
+		}
+		# Shakesort ili cocktailsort
+		# Jos jedno poredjenje u nazad da bi i manje brojeve pomerili u levo
+		/*for ($i=count($niz)-1; $i <=0 ; $i--) { 
+			if ($niz[$i-1] > $niz[$i]) {
+				$temp = $niz[$i-1];
+				$niz[$i-1] = $niz[$i];
+				$niz[$i] = $temp;
+				$isSorted = false;
+			}
+		}*/
+	}
+	echo "Rezultat:";
+	printr($niz);
+}
+
+bubbleSort(array(5,1,9,4,2,3,6,7,11,8));
+
  ?>
 
 
