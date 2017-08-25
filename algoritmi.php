@@ -153,6 +153,7 @@ function printr($data){
  	echo "NZD: ".euklid(12,8);
 #############################################
 echo "<hr>Sort direktno umetanje <br>";	
+# Pomera manje elemente u levo gde se jos jednom sortiraju
 function sortUmetanje(array $niz){
 	echo "POCETNI NIZ: "; printr($niz);
 	for ($i=1; $i < count($niz); $i++) { 
